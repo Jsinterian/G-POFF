@@ -1,0 +1,25 @@
+ body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Efecto hover en botones */
+        button:hover {
+            background-color: #ff0000;
+            transform: scale(1.05);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        /* Estilos para la sección de contacto */
+        footer i {
+            color: #ff5733;
+        }
+
+        /* Mejorar el diseño del mapa */
+        .mapa-direccion {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }

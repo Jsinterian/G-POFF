@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublinter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button:hover {
+            background-color: #ff0000;
+            transform: scale(1.05);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        footer i {
+            color: #ff5733;
+        }
+
+        .mapa-direccion {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        .cart-page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .section {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Estilos para las tarjetas del carrito al estilo Material Design */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .cart-item:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cart-item img {
+            max-width: 80px;
+            max-height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .cart-item-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-description {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Estilos para los apartados */
+        .featured-products, .offers, .about-us, .testimonials {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-white text-center">
+    <header class="flex justify-between items-center p-4">
+        <div class="flex items-center">
+            <h1 class="text-3xl font-bold">SUBLINTER</h1>
+            <div class="ml-2 flex space-x-1">
+                <div class="w-4 h-4 bg-red-500"></div>
+                <div class="w-4 h-4 bg-yellow-500"></div>
+                <div class="w-4 h-4 bg-blue-500"></div>
+                <div class="w-4 h-4 bg-gray-500"></div>
+            </div>
+        </div>
+        <div>
+            <button id="cart-button" onclick="goToCart()">🛒 Carrito (0)</button>
+        </div>
+    </header>
+
+    <main class="mt-16" id="main-content">
+        <!-- Apartado 1: Productos Destacados -->
+        <section id="featured-products" class="section">
+            <h2 class="section-title">1. Productos Destacados</h2>
+            <div class="featured-products">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Producto 1">
+                    <h3 class="card-title">Producto 1</h3>
+                    <p class="card-text">Descripción del producto 1</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Producto 2">
+                    <h3 class="card-title">Producto 2</h3>
+                    <p class="card-text">Descripción del producto 2</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apartado 2: Ofertas del Día -->
+        <section id="offers" class="section bg-gray-100">
+            <h2 class="section-title">2. Ofertas del Día</h2>
+            <div class="offers">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Oferta 1">
+                    <h3 class="card-title">Oferta 1</h3>
+                    <p class="card-text">Descripción de la oferta 1</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Oferta 2">
+                    <h3 class="card-title">Oferta 2</h3>
+                    <p class="card-text">Descripción de la oferta 2</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apartado 3: Sobre Nosotros -->
+        <section id="about-us" class="section">
+            <h2 class="section-title">3. Sobre Nosotros</h2>
+            <p class="text-lg max-w-2xl mx-auto">
+                Somos una empresa comprometida con ofrecer productos de alta calidad y brindar una excelente experiencia de compra en línea.
+            </p>
+        </section>
+
+        <!-- Apartado 4: Testimonios -->
+        <section id="testimonials" class="section bg-gray-100">
+            <h2 class="section-title">4. Testimonios</h2>
+            <div class="testimonials">
+                <div class="card">
+                    <img src="https://via.placeholder.com/80" alt="Usuario 1">
+                    <h3 class="card-title">Juan Pérez</h3>
+                    <p class="card-text">"Gran servicio y productos de excelente calidad. Muy satisfecho con mi compra."</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/80" alt="Usuario 2">
+                    <h3 class="card-title">Ana López</h3>
+                    <p class="card-text">"La entrega fue rápida y los productos tal como se describen. Lo recomiendo."</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sección del carrito (apartado oculto por defecto) -->
+    <section id="cart-section" class="cart-page">
+        <h2 class="text-3xl font-bold mb-4">Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <p class="text-xl font-bold mt-4">Total: $<span id="cart-total">0.00</span></p>
+        <button class="bg-red-600 text-white py-2 px-8 rounded-full mt-4" onclick="emptyCart()">Vaciar Carrito</button>
+        <button class="bg-blue-600 text-white py-2 px-8 rounded-full mt-4" onclick="goBack()">Volver a la tienda</button>
+        <button class="bg-green-600 text-white py-2 px-8 rounded-full mt-4" onclick="trackOrder()">Ver seguimiento de pedido</button>
+        <button class="bg-yellow-600 text-white py-2 px-8 rounded-full mt-4" onclick="checkout()">Finalizar compra</button>
+    </section>
+
+    <footer class="mt-16">
+        <div class="flex justify-center items-center">
+            <i class="fas fa-phone-alt text-4xl text-red-600"></i>
+        </div>
+        <p class="mt-2">CONTACTANOS</p>
+        <hr class="my-4">
+        <p>TIENDA DIGITAL SUBLINTER</p>
+        <hr class="my-4">
+        <p>REPORTE O SUGERENCIAS</p>
+    </footer>
+
+    <script>
+        // Función para mostrar el reloj en vivo
+        function mostrarHora() {
+            const reloj = document.getElementById('reloj');
+            const ahora = new Date();
+            const horas = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
+            reloj.textContent = `${horas}:${minutos}:${segundos}`;
+        }
+        setInterval(mostrarHora, 1000);
+
+        // Carrito de compras
+        let cart = [];
+
+        function goToCart() {
+            // Ocultar el contenido principal y mostrar el carrito
+            document.getElementById("main-content").style.display = "none";
+            document.getElementById("cart-section").classList.add("active");
+        }
+
+        function goBack() {
+            // Mostrar el contenido principal y ocultar el carrito
+            document.getElementById("main-content").style.display = "block";
+            document.getElementById("cart-section").classList.remove("active");
+        }
+
+        function addToCart(productName, price, description) {
+            const existingProduct = cart.find(item => item.name === productName);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: price, description: description, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsElement = document.getElementById("cart-items");
+            const cartButton = document.getElementById("cart-button");
+            const cartTotalElement = document.getElementById("cart-total");
+
+            cartItemsElement.innerHTML = "";
+            let totalItems = 0;
+            let totalPrice = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.className = "cart-item";
+
+                cartItem.innerHTML = `
+                    <img src="https://via.placeholder.com/80" alt="Imagen de ${item.name}">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-description">${item.description}</div>
+                        <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)} (${item.quantity} unidades)</div>
+                    </div>
+                    <button onclick="removeFromCart(${index})">Eliminar</button>
+                `;
+
+                cartItemsElement.appendChild(cartItem);
+
+                totalItems += item.quantity;
+                totalPrice += item.price * item.quantity;
+            });
+
+            cartButton.textContent = `🛒 Carrito (${totalItems})`;
+            cartTotalElement.textContent = totalPrice.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function emptyCart() {
+            cart = [];
+            updateCart();
+        }
+
+        function trackOrder() {
+            alert("Funcionalidad de seguimiento en desarrollo.");
+        }
+
+        function checkout() {
+            alert("Gracias por tu compra. Funcionalidad de pago en desarrollo.");
+        }
+    </script>
+</body>
+</html>

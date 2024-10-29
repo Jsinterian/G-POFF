@@ -1,0 +1,64 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - SUBLINTER</title>
+    <link rel="stylesheet" href="access/css/estilos.css">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="contenedor__todo">
+
+            <div class="caja__trasera">
+                <div class="caja__trasera_login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para acceder a la pág</p>
+                    <button id="btn__iniciar-sesion">Iniciar sesión</button>
+                </div>
+
+                <div class="caja__trasera_register">
+                    <h3>¿Aún no tienes cuenta??</h3>
+                    <p>IRegistrate para que no puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Registrarse</button>
+                </div>
+            </div>
+
+<!--Fornmulario de login y registro-->
+            <div class="contenedor__login-register">
+<!--Login-->
+                <form action="" class="formulario__login">
+
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" placeholder="Correo Electronico">
+                    <input type="password" placeholder="Contraseña">
+                    <button>Entrar</button>
+                </form>
+<!--Registro-->
+                <form action="" class="formulario__register">
+
+                    <h2>Registrarse</h2>
+                    <input type="text" placeholder="Nombre Completo">
+                    <input type="text" placeholder="Correo Electronico">
+                    <input type="text" placeholder="Usuario">
+                    <input type="password" placeholder="Contraseña">
+                    <button>Registrarse</button>
+                </form>
+            </div>
+
+            
+        </div>
+        <button onclick="window.location.href='index.php'" style="position: absolute; top: 0; right: 0; font-size: 1.5em; cursor: pointer; 
+        color:black; font-family: 'Times New Roman', Times, serif;">
+            <i class="fas fa-arrow-left">REGRESAR AL MENU PRINCIPAL</i>
+        </button>
+
+    </main>
+    <script src="access/js/script.js"></script>
+    
+</body>
+</html>
