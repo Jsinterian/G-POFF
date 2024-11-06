@@ -1,5 +1,5 @@
 <?php
-// src/config/db.php
+// src/config/conexion.php
 
 // Configuración de la base de datos
 $host = 'localhost'; // Generalmente es localhost

@@ -2,7 +2,7 @@
 // public/index.php
 
 // Incluir el archivo de conexión
-require_once '../src/config/db.php';
+require_once '../src/config/conexion.php';
 
 // Ahora puedes usar $pdo para hacer consultas a la base de datos
 try {
@@ -59,15 +59,15 @@ try {
         <div class="flex justify-center space-x-12 mt-8">
             <div class="text-center">
                 <i class="fas fa-shopping-basket text-4xl"></i>
-                <p class="mt-2">COMPRA</p>
+                <p class="mt-2"><button> COMPRA </button></p>
             </div>
             <div class="text-center">
                 <i class="fas fa-home text-4xl"></i>
-                <p class="mt-2">TIENDA</p>
+                <p class="mt-2"> <button> TIENDA </button></p>
             </div>
             <div class="text-center">
                 <i class="fas fa-motorcycle text-4xl"></i>
-                <p class="mt-2">DOMICILIO</p>
+                <p class="mt-2"> <button> DOMICILIO </button></p>
             </div>
         </div>
         <button class="bg-red-600 text-white text-xl font-bold py-2 px-8 rounded-full mt-8">REALIZAR PEDIDO</button>
